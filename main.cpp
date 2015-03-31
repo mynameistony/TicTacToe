@@ -5,10 +5,26 @@ using namespace std;
 
 int main(){
 
-	Board game('T','J');
+	char p1Token = 'X';
+	char p2Token = 'O';
+
+
+	cout << "Enter Player 1's Token: ";
+	cin >> p1Token;
+
+	again:
+	cout << "Enter Player 2's Token: ";
+	cin >> p2Token;
+
+	if(p1Token == p2Token){
+		cout << "Nigga, that's player 1's token, what the fuck you tryna do?" << endl;
+		goto again;
+	}
+
+	Board game(p1Token, p2Token);
 
 	do{
-		game.printBoard();
+//		game.printBoard();
 		game.playerTurn();
 	}while(!game.checkWin());
 
